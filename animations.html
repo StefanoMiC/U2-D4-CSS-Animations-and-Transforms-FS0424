@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                background-color: black;
+                color: white;
+            }
+
+            to {
+                opacity: 1;
+                background-color: black;
+                color: white;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* animation: fadeIn 5s both 4s; */
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        h3,
+        h4 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-inline: auto;
+            background-color: #ebebeb;
+            margin-top: 3rem;
+            min-height: 30vh;
+            padding: 1rem;
+        }
+
+        .rectangle {
+            width: 250px;
+            min-height: 60px;
+            background-color: palegreen;
+            border: 1px solid rgb(0 0 0 / 20%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        @keyframes colorShift {
+            0% {
+                transform: translateX(300px);
+                background-color: blue;
+                color: white;
+            }
+
+            50% {
+
+                transform: translateX(600px)
+            }
+
+            100% {
+
+                transform: translateX(100px);
+                background-color: red;
+                color: white;
+            }
+        }
+
+        .n1 {
+            /* applico l'animazione con 3 secondi di durata e 3 di delay, uso fill-mode a both per assicurarmi che 
+            il primo keyframe sia già attivo anche durante lo scadere del delay e 
+            che l'ultimo keyframe rimanga attivo sull'elemento dopo la fine dell'animazione stessa.
+            
+            questa animazione non ha bisogno di "trigger" partirà da sola dopo lo scadere del delay*/
+            animation: colorShift 3s both 3s;
+        }
+
+
+        @keyframes backgroundMove {
+            from {
+                background-position-x: 0%;
+            }
+
+            to {
+                background-position-x: 100%;
+            }
+        }
+
+        .n2 {
+            background-image: linear-gradient(to right, blue, red, violet);
+            background-size: 400%;
+            color: white;
+        }
+
+        .applyBackgroundMove {
+            /* questo metodo mi permette di avviare un'animazione infinita dopo il trigger del click del mouse
+            la funzione handleBtnClick che si attiva al click sull'elemento chiamato n2 applicherà/rimuoverà questa classe ad ogni click sull'elemento, 
+            di fatto dandoci il controllo sull'animazione, potendola attivare o spegnere a piacimento */
+            animation: backgroundMove 2s alternate infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Animation</h2>
+        <div class="rectangle n1">automatic</div>
+        <div class="rectangle n2" onclick="handleBtnClick(event)">click me</div>
+    </div>
+
+    <script>
+        const handleBtnClick = function (e) {
+            e.currentTarget.classList.toggle("applyBackgroundMove")
+        }
+    </script>
+
+</body>
+
+</html>
