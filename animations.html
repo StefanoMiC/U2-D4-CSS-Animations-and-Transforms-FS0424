@@ -83,9 +83,11 @@
         }
 
         .n1 {
-            /* applico l'animazione con 3 secondi di durata e 3 di delay, uso fill-mode a both per assicurarmi che 
+            /* applico l'animazione con 3 secondi di durata e 3 di delay, uso fill-mode "both" per assicurarmi che 
             il primo keyframe sia già attivo anche durante lo scadere del delay e 
             che l'ultimo keyframe rimanga attivo sull'elemento dopo la fine dell'animazione stessa.
+            l'alternativa è "forwards" - tieni attivo solo il primo keyframe durante il delay
+            o "backwards" - tieni attivo solo l'ultimo keyframe al completamento dell'animazione
             
             questa animazione non ha bisogno di "trigger" partirà da sola dopo lo scadere del delay*/
             animation: colorShift 3s both 3s;
