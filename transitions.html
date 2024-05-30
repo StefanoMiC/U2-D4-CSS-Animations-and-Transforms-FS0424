@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforms</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-inline: auto;
+            background-color: #ebebeb;
+            margin-top: 3rem;
+            min-height: 50vh;
+            padding: 1rem;
+        }
+
+        .rectangle {
+            width: 250px;
+            min-height: 60px;
+            background-color: palegreen;
+            border: 1px solid rgb(0 0 0 / 20%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .n1 {
+            transition: width 1s, font-size 500ms;
+        }
+
+        /* .n1:hover {
+            width: 500px
+        } */
+
+        .n2 {
+            transition: width 0.5s, background-color 0.5s;
+
+        }
+
+        .n2:hover {
+            width: 500px;
+            background-color: rgb(229, 13, 85);
+            transition: width .5s, background-color 3s 4s;
+        }
+
+        .grow {
+            width: 700px;
+            background-color: palevioletred;
+        }
+
+        .n3 {
+            margin-top: 2rem;
+            box-shadow: 0 6px 10px -3px rgb(0 0 0 / 10%);
+            transition: box-shadow 300ms, transform 200ms;
+            cursor: pointer;
+        }
+
+        .n3:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px 0px rgb(0 0 0 / 20%)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Transitions</h2>
+        <div class="rectangle n1" onclick="firstBtnClick(event)">
+            <span>transizione di width</span>
+        </div>
+        <div class="rectangle n2" onclick="firstBtnClick(event)">width + color</div>
+        <div class="rectangle n3">scale + shadow</div>
+    </div>
+
+    <script>
+
+        const firstBtnClick = function (e) {
+
+            // console.log(e, "event")
+            // console.log(e.target, "target")
+            // console.log(e.currentTarget, "currentTarget")
+
+            // e.currentTarget.style.backgroundColor = "red"
+            // e.currentTarget.style.width = "700px"
+
+            // e.currentTarget.classList.toggle("grow")
+
+            if (e.currentTarget.classList.contains("grow")) {
+                e.currentTarget.classList.remove("grow")
+                // altre cose da fare in caso di true
+            } else {
+                e.currentTarget.classList.add("grow")
+                // altre cose da fare in caso di false
+            }
+
+        }
+
+        // const n1 = document.querySelector(".n1")
+        // const myPar = "Ciao"
+        // n1.onclick = function (event) { firstBtnClick(event) }
+        // n1.onclick = function (e) { firstBtnClick(e, myPar) }
+        // n1.onclick = firstBtnClick
+
+
+        // firstBtnClick(event)
+
+    </script>
+</body>
+
+</html>
