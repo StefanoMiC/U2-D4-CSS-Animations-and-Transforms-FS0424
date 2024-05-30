@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforms</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-inline: auto;
+            background-color: #ebebeb;
+            margin-top: 3rem;
+            min-height: 50vh;
+            padding: 1rem;
+        }
+
+        .rectangle {
+            width: 250px;
+            min-height: 60px;
+            background-color: palegreen;
+            border: 1px solid rgb(0 0 0 / 20%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .n1 {
+            /* translate(x, y) */
+            transform: translate(-30px, 10px);
+        }
+
+        .n2 {
+            /* translate(x, y) */
+            transform: translateX(-10px);
+        }
+
+        .n3 {
+            /* translate(x, y) */
+            transform: translateY(-10px);
+        }
+
+        .n4 {
+            /* rotate(10deg) */
+            /* rotate(3turn) */
+            transform: rotate(15deg);
+        }
+
+        .n5 {
+            /* rotateX(10deg) */
+            /* rotateX(3turn) */
+            transform: rotateX(75deg);
+        }
+
+        .n6 {
+            /* rotateY(10deg) */
+            /* rotateY(3turn) */
+            transform: rotateY(105deg);
+        }
+
+        .n7 {
+            /* skew(10deg) */
+            transform: skew(105deg);
+        }
+
+        .n8 {
+            /* skewY(10deg) */
+            transform: skewY(-5deg);
+        }
+
+        .n9 {
+            /* scale(1.1) */
+            transform: scale(1.1);
+        }
+
+        .n10 {
+            /* scaleX(1.1) */
+            transform: scaleX(2);
+        }
+
+        .n11 {
+            /* scaleY(1.1) */
+            transform: scaleY(0.5);
+        }
+
+        .n12 {
+            /* translate(x, y) */
+            transform: perspective(1000px) translateZ(300px);
+        }
+
+        .n13 {
+            /* roate3d(x, y, z, deg) */
+            transform: perspective(1000px) rotate3d(1, 1, 1, 34deg);
+        }
+
+        .n14 {
+            /* roate3d(x, y, z, deg) */
+            /* transform: perspective(1000px) rotate3d(1, 1, 0, 80deg) scale3d(2, 1.1, 4.1); */
+            transform: perspective(1000px) rotate3d(1, 1, 0, 80deg) translate3d(0, 0, 100px);
+            transform-style: preserve-3d
+        }
+
+        .n14>div:first-of-type {
+            background-color: paleturquoise;
+            transform: perspective(1000px) rotate3d(0, 1, 0, 300deg)
+        }
+
+        .n14>div:nth-of-type(2) {
+            background-color: palegoldenrod;
+            transform: perspective(1000px) rotate3d(0, 1, 0, 75deg)
+        }
+
+        .n14>div:first-of-type:hover {
+            background-color: rgb(89, 195, 195)
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Translate</h2>
+        <div class="rectangle n1">x e y</div>
+        <div class="rectangle n2">x</div>
+        <div class="rectangle n3">y</div>
+
+        <h2>Rotate</h2>
+        <div class="rectangle n4">z</div>
+        <div class="rectangle n5">x</div>
+        <div class="rectangle n6">y</div>
+
+        <h2>Skew (distorsione)</h2>
+        <div class="rectangle n7">x</div>
+        <div class="rectangle n8">y</div>
+
+        <h2>Scale (ridimensionamento)</h2>
+        <div class="rectangle n9">x e y</div>
+        <div class="rectangle n10">x</div>
+        <div class="rectangle n11">y</div>
+
+        <h3>3D</h3>
+        <h2>TranslateZ</h2>
+        <div class="rectangle n12">z</div>
+
+        <h2>Rotate3d</h2>
+        <div class="rectangle n13">x e y e z</div>
+        <h2>Scale3d</h2>
+        <div class="rectangle n14">
+            x e y e z
+            <div>first child</div>
+            <div>second child</div>
+        </div>
+
+
+
+
+    </div>
+
+</body>
+
+</html>
